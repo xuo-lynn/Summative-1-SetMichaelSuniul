@@ -1,4 +1,4 @@
-package com.company.SummativeProject.quotecontroller;
+package com.company.SummativeProject.controller.quotecontroller;
 
 import com.company.SummativeProject.models.Quote;
 import org.springframework.http.HttpStatus;
@@ -28,7 +28,6 @@ public class quotecontroller {
         Quote quote9 = new Quote(9, "Albert Einstein", "I am enough of an artist to draw freely upon my imagination. Imagination is more important than knowledge.");
         Quote quote10 = new Quote(10, "Robert Frost", "In three words I can sum up everything I've learned about life: it goes on.");
 
-
         this.quotes.add(quote1);
         this.quotes.add(quote2);
         this.quotes.add(quote3);
@@ -39,10 +38,8 @@ public class quotecontroller {
         this.quotes.add(quote8);
         this.quotes.add(quote9);
         this.quotes.add(quote10);
-
-
-
     }
+
     @RequestMapping(value = "/quote", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public Quote quoteAPI() {
