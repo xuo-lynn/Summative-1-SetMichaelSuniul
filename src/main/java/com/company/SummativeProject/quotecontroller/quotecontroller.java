@@ -1,6 +1,4 @@
-package com.company.SummativeProject.controller;
-
-import com.company.SummativeProject.models.Answer;
+package com.company.SummativeProject.quotecontroller;
 
 import com.company.SummativeProject.models.Quote;
 import org.springframework.http.HttpStatus;
@@ -9,28 +7,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 @RestController
-public class SummativeController {
-    List<Answer> answers = new ArrayList<Answer>();
-    List<Quote> quotes = new ArrayList<Quote>();
-    public SummativeController() {
-        // Magic 8 Ball
-        Answer answer1 = new Answer(1, "I was at the grocery store.");
-        Answer answer2 = new Answer(2, "I am doing well.");
-        Answer answer3 = new Answer(3, "My favorite meal is lunch.");
-        Answer answer4 = new Answer(4,"My favorite color is green.");
-        Answer answer5 = new Answer(5,"My favorite holiday is Thanksgiving.");
-        Answer answer6 = new Answer(6, "My favorite time of day is the evening.");
+public class quotecontroller {
 
-        this.answers.add(answer1);
-        this.answers.add(answer2);
-        this.answers.add(answer3);
-        this.answers.add(answer4);
-        this.answers.add(answer5);
-        this.answers.add(answer6);
+    List<Quote> quotes = new ArrayList<Quote>();
+    public quotecontroller() {
 
         // Quotes
         Quote quote1 = new Quote(1, "J.R.R. Tolkien", "All that is gold does not glitter, not all those who wander are lost.");
@@ -61,23 +45,13 @@ public class SummativeController {
     }
     @RequestMapping(value = "/quote", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public String quoteAPI() {
+    public Quote quoteAPI() {
         Random r = new Random();
         int sol = r.nextInt(10) + 1;
         for (Quote quote : this.quotes) {
-            if (quote.getId() == sol) return quote.getQuote() + " - " + quote.getAuthor();
+            if (quote.getId() == sol) return quote;
         }
-        return "Never give up on your dreams. - Johnny Tim";
+        return null;
     }
 
-    @RequestMapping(value = "/magic", method = RequestMethod.GET)
-    @ResponseStatus(value = HttpStatus.OK)
-    public String magic8Ball() {
-        Random r = new Random();
-        int sol = r.nextInt(6 ) + 1;
-        for (Answer ans : this.answers) {
-            if (ans.getId() == sol) return ans.getAnswer();
-        }
-        return "The weather is hot today.";
-    }
 }
