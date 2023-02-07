@@ -22,16 +22,12 @@ public class wordController {
         wordsDictionary.put("Google", "A company that makes search engines or a number");
     }
 
-    @GetMapping(value = "/word") //returns one word and its definition
+    @GetMapping(value = "/word") //returns a random word and its definition (refresh the page to get a new word)
     public String getWord() {
         populateDictionary();
-        String word = "";
-        String definition = "";
-        for (String key : wordsDictionary.keySet()) {
-            word = key;
-            definition = wordsDictionary.get(key);
-            break;
-        }
-        return "Word of the Day: " + word + ": " + definition;
+        int random = (int) (Math.random() * wordsDictionary.size());
+        String word = (String) wordsDictionary.keySet().toArray()[random];
+        String definition = wordsDictionary.get(word);
+        return word + ": " + definition;
     }
 }
