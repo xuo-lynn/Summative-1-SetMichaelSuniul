@@ -28,6 +28,6 @@ public class wordController {
         int random = (int) (Math.random() * wordsDictionary.size());
         String word = (String) wordsDictionary.keySet().toArray()[random];
         String definition = wordsDictionary.get(word);
-        return word + ": " + definition;
+        return "Your word of the day is: " + word + ": " + definition;
     }
 }
