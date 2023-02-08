@@ -1,4 +1,4 @@
-package com.company.SummativeProject.controller.quotecontroller;
+package com.company.SummativeProject.controller;
 
 import com.company.SummativeProject.models.Quote;
 import org.springframework.http.HttpStatus;
