@@ -33,7 +33,7 @@ public class answercontroller {
         Random r = new Random();
         int sol = r.nextInt(6 ) + 1;
         for (Answer ans : this.answers) {
-            if (ans.getId() == sol) return ans.getAnswer();
+            if (ans.getId() == sol) return ans;
         }
         return null;
     }
