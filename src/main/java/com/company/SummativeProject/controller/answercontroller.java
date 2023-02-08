@@ -29,7 +29,7 @@ public class answercontroller {
 
     @RequestMapping(value = "/magic", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
-    public String magic8Ball(@RequestBody Answer question) {
+    public Answer magic8Ball(@RequestBody Answer question) {
         Random r = new Random();
         int sol = r.nextInt(6 ) + 1;
         for (Answer ans : this.answers) {
