@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Random;
 @RestController
 public class answercontroller {
-    List<Answer> answers = new ArrayList<Answer>();
+    List<Answer> answers = new ArrayList<>();
 
     public answercontroller() {
         Answer answer1 = new Answer(1, "I was at the grocery store.");
@@ -29,11 +29,11 @@ public class answercontroller {
 
     @RequestMapping(value = "/magic", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
-    public Answer magic8Ball(@RequestBody Answer question) {
+    public String magic8Ball(@RequestBody Answer question) {
         Random r = new Random();
         int sol = r.nextInt(6 ) + 1;
         for (Answer ans : this.answers) {
-            if (ans.getId() == sol) return ans;
+            if (ans.getId() == sol) return ans.getAnswer();
         }
         return null;
     }
