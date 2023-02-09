@@ -36,6 +36,7 @@ public class answercontroller {
             if (ans.getId() == sol){
                 ans.setQuestion(question.getQuestion());
                 return ans;
+
             }
         }
         return null;
