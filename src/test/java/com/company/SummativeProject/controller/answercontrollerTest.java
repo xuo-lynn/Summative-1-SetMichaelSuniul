@@ -1,4 +1,4 @@
-package com.company.SummativeProject.controller.answercontroller;
+package com.company.SummativeProject.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;

@@ -1,4 +1,4 @@
-package com.company.SummativeProject.controller.quotecontroller;
+package com.company.SummativeProject.controller;
 
 import com.company.SummativeProject.controller.answercontroller.answercontroller;
 import com.fasterxml.jackson.databind.ObjectMapper;
