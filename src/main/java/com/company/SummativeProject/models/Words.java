@@ -1,12 +1,13 @@
 package com.company.SummativeProject.models;
 
 public class Words {
+
+    private int id;
     private String word;
-    private String definition;
 
     public Words(String word) {
         this.word = word;
-        this.definition = definition;
+        this.id = id;
     }
 
     public String getWord() {
@@ -17,12 +18,12 @@ public class Words {
         this.word = word;
     }
 
-    public String getDefinition() {
-        return definition;
+    public int getId() {
+        return id;
     }
 
-    public void setDefinition(String definition) {
-        this.definition = definition;
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
