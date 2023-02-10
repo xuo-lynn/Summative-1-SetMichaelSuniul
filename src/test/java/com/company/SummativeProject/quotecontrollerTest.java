@@ -22,13 +22,6 @@ public class quotecontrollerTest {
     // ObjectMapper used to convert Java into JSON and vice versa
     private ObjectMapper mapper = new ObjectMapper();
 
-    // For testing
-    private List<answercontroller> answerList;
-
-    @Before
-    public void setUp() {
-        // tbd
-    }
     // Testing POST
     @Test
     public void shouldReturnQuote() throws Exception {
