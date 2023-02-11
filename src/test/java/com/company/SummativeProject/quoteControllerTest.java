@@ -1,20 +1,16 @@
-package com.company.SummativeProject.controller.quotecontroller;
+package com.company.SummativeProject;
 
-import com.company.SummativeProject.controller.answercontroller.answercontroller;
+import com.company.SummativeProject.controller.quoteController;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.List;
-
-import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class quotecontrollerTest {
+public class quoteControllerTest {
     // Wiring in the Mockmvc
     @Autowired
     private MockMvc mockMvc;
@@ -25,7 +21,7 @@ public class quotecontrollerTest {
     // Testing POST
     @Test
     public void shouldReturnQuote() throws Exception {
-        quotecontroller quoteObject = new quotecontroller();
+        quoteController quoteObject = new quoteController();
         String output = mapper.writeValueAsString(quoteObject);
         mockMvc.perform(get("/quote")).andDo(print()).andExpect(status().isOk());
     }
