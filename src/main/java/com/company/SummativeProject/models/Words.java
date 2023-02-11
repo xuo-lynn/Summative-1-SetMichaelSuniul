@@ -7,7 +7,6 @@ public class Words {
 
     public Words(String word) {
         this.word = word;
-        this.id = id;
     }
 
     public String getWord() {
