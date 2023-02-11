@@ -28,7 +28,7 @@ public class answerController {
     }
 
     @RequestMapping(value = "/magic", method = RequestMethod.POST)
-    @ResponseStatus(value = HttpStatus.OK)
+    @ResponseStatus(value = HttpStatus.CREATED)
     public Answer magic8Ball(@RequestBody Answer question) {
         Random r = new Random();
         int sol = r.nextInt(6 ) + 1;
