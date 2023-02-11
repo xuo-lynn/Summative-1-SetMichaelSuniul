@@ -1,7 +1,8 @@
-package com.company.SummativeProject.controller.answercontroller;
+package com.company.SummativeProject;
 
+import com.company.SummativeProject.controller.answerController;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Before;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,16 +11,13 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.List;
-
-import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(answercontroller.class)
-public class answercontrollerTest {
+@WebMvcTest(answerController.class)
+public class answerControllerTest {
     // Wiring in the Mockmvc
     @Autowired
     private MockMvc mockMvc;
@@ -30,7 +28,7 @@ public class answercontrollerTest {
     // Testing POST
     @Test
     public void testMagic8Ball() throws Exception {
-        answercontroller acObject = new answercontroller();
+        answerController acObject = new answerController();
 
         // Convert Java Object to JSON
         String input = mapper.writeValueAsString(acObject);

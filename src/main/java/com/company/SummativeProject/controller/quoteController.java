@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 @RestController
-public class quotecontroller {
+public class quoteController {
 
     List<Quote> quotes = new ArrayList<Quote>();
-    public quotecontroller() {
+    public quoteController() {
 
         // Quotes
         Quote quote1 = new Quote(1, "J.R.R. Tolkien", "All that is gold does not glitter, not all those who wander are lost.");

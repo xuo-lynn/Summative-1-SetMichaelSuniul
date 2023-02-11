@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 @RestController
-public class answercontroller {
+public class answerController {
     List<Answer> answers = new ArrayList<>();
 
-    public answercontroller() {
+    public answerController() {
         Answer answer1 = new Answer(1, "I was at the grocery store.");
         Answer answer2 = new Answer(2, "I am doing well.");
         Answer answer3 = new Answer(3, "My favorite meal is lunch.");
