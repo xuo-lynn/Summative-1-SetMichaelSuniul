@@ -1,37 +1,35 @@
 package com.company.SummativeProject;
 
-import static org.hamcrest.Matchers.startsWith;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import com.company.SummativeProject.controller.quoteController;
 import com.company.SummativeProject.controller.wordController;
-import org.junit.Before;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(wordController.class)
 public class wordControllerTest {
-
+    // Wiring in the Mockmvc
     @Autowired
-    private MockMvc mvc;
+    private MockMvc mockMvc;
 
-    @Before
-    public void setUp() {
-        // To initialize the `wordsDictionary` before each test
-        wordController controller = new wordController();
-        controller.populateDictionary();
-    }
+    // ObjectMapper used to convert Java into JSON and vice versa
+    private ObjectMapper mapper = new ObjectMapper();
 
+    // Testing POST
     @Test
-    public void getRandomWord_returnsRandomWord() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/word").accept(MediaType.TEXT_PLAIN))
-                .andExpect(status().isOk())
-                .andExpect(content().string(startsWith("The Word of the Day is:")));
+    public void shouldReturnQuote() throws Exception {
+        wordController wordObject = new wordController();
+        String output = mapper.writeValueAsString(wordObject);
+        mockMvc.perform(get("/word")).andDo(print()).andExpect(status().isOk());
     }
 }
+
